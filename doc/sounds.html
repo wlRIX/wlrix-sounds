@@ -1,0 +1,236 @@
+<HTML VERSION="2.0">
+<TITLE>SGI Desktop Sounds</TITLE>
+<BODY>
+<DL>
+<H1><B>SGI Desktop Sounds</B></H1>
+<DT>by R.C. Underwood
+<DT>revised 24 August 1998, 12:30 PM
+<DT><FONT SIZE="-1"><EM>Archived 2001-09-11 from http://reality.sgi.com/rcu/sounds/sounds.html</EM></FONT>
+</DL>
+
+<HR>
+<H2>Upshot</H2>
+<UL>
+<LI><A HREF="#whatis">What are these IRIX desktop sounds?</A>
+<LI><A HREF="#use">How can I use them in my Web page?</A>
+<LI><A HREF="#change">How can I change the sounds on my 
+SGI workstation?</A>
+</UL>
+
+<A NAME="whatis">
+<H2>What are these IRIX desktop sounds?</H2>
+
+<P>This is the soundscheme I put together for the Indigo Magic Desktop
+in IRIX 5.3 (and it has survived largely intact through IRIX 6.5).
+These sounds play when you use the mouse pointer to do operations on
+icons such as moving an icon, dropping an icon on the dumpster, and
+double-clicking to start an application.</P>
+
+<P>I worked with Roger Powell (former member of the band Utopia) and
+contractor Jeff Essex to specify a desired soundscheme. Using our
+descriptions, Jeff created a pool of about 60 individual sounds.  Then
+I selected from that set the sounds shown below, thereby creating a
+soundscheme.  The scheme follows a generally percussive motif,
+including toms, triangle, cymbal, and woodblock samples and
+synthesized sounds.  Using <CODE>soundeditor</CODE> I truncated and
+adjusted the amplitudes so the sounds are perceived to have about the
+same loudness.</P>
+
+<P>You may notice that the number of sounds in the scheme increased
+from 12 sounds in IRIX 5.2, to 19 sounds in IRIX 5.3.  That's because
+in addition to replacing existing sound files, I added code to the
+desktop libraries to play sounds that did not exist before, such as
+Remove, RemoveToDumpster, PutAway (obsolete in IRIX 6.3 and 6.4), and
+OpenFolder.</P>
+
+<P>The smaller files are in AIFC format; the rest are in AIFF.  Most
+sounds play for less than one second.  The DeskSwitch and DropIgnore
+sounds were never actually implemented in the desktop.</P>
+
+<P>
+<UL>
+<LI><A HREF="01.african.thumb.inst.aifc">Error</A> (75K)
+<LI><A HREF="ss1.aifc">Fatal error</A> (10K)
+<LI><A HREF="13.high.chink.aifc">File arrival</A> warning (67K)
+<LI><A HREF="01.buzz.kerchick.aifc">Question</A> (89K)
+<LI><A HREF="08.ting.aifc">Information</A> (67K)
+<LI><A HREF="05.kerchick.echo.aifc">Launch</A> (67K)
+<LI><A HREF="20.zikik.aifc">Completion</A> (133K)
+<LI><A HREF="ss7.aifc">Beep</A> (6K)
+<LI><A HREF="02.xylo.pong.aifc">Move</A> an icon by drag-and-drop (67K)
+<LI><A HREF="01.high.toms.aifc">Copy</A> an icon by drag-and-drop (67K)
+<LI><A HREF="ss10.aifc">Shift</A> an icon's position (11K)
+<LI><A HREF="02.chick.aifc">Ignore</A> attempt to drop an icon (67K)
+<LI><A HREF="01.rm.aiff">Remove</A> a file or folder permanently (67K)
+<LI><A HREF="19.bong.aifc">Remove</A> to the dumpster (92K)
+<LI><A HREF="ss11.aifc">Put away</A> an icon (9K) <I>(This action is
+obsolete in IRIX 6.3 and 6.4 because the desktop now creates
+reference icons (aliases) when you drag an icon to the desktop.)</I>
+<LI><A HREF="24.muted.bong.aifc">Mount</A> a volume (133K)
+<LI><A HREF="14.wood.duhdah.aifc">Open a folder</A> (67K)
+<LI><A HREF="18.wood.kasnap.aifc">Open a remote folder</A> (41K)
+<LI><A HREF="05.hi.wood.uhoh.aifc">Switch desks</A> (67K)
+</UL>
+
+<A NAME="use">
+<H2>How can I use these sounds in my own Web page?</H2>
+
+<P>I like these sounds, and I like it when other people do too, but I
+don't want anyone to get into copyright trouble. So please be sure to
+cite this page if you want to use these sounds on your Web page or
+elsewhere.</P>
+
+<P>For a Web page, I suggest adding a footnote like this:
+</P>
+
+<P><FONT SIZE="-2">
+<A 
+HREF="http://ftp.sgi.com/sgi/desktop/sounds/sounds.html">
+IRIX desktop sounds</A> courtesy the SGI desktop.</FONT></P>
+
+<P>(Do View Document Source to get the HTML for this footnote.)</P>
+
+<P>If you're using these sounds on your personal computer, I think
+that's cool.  That is, I don't think SGI lawyers will come after you,
+but I'd be jazzed if you let your friends know where you got the
+sounds when they compliment you (grin).</P>
+
+<A NAME="change">
+<H2>How can I change the sounds on my IRIX workstation?</H2>
+
+<P>As of IRIX 6.5, you <B>don't need root access</B> to modify sounds
+on your SGI workstation, and users can modify sounds just for their
+own account instead of the whole system.  Here's how to do it (from
+the IRIX 6.5 <CODE>desktop_eoe</CODE> release notes, Appendix A):
+
+<UL>
+<LI>In the home directory, create a new directory to hold custom
+sounds.  Rename it as <CODE>sound</CODE> if desired.</P>
+
+<LI>Place new soundfiles into the sound directory.  They need to be in
+AIFF-C format, recorded at 44.1kHz sampling rate, about 0.3 seconds in
+duration, and neither too loud nor too soft.  See the
+<CODE>soundeditor</CODE> man page for help editing soundfiles.</P>
+
+<LI>Open the <CODE>/usr/share/data/sounds/soundscheme/schemes</CODE>
+directory.  Copy the <CODE>defaultScheme.ss</CODE> file to the user's
+sound directory.  Rename the copy to <CODE>my.ss</CODE> if desired.</P>
+
+<LI>Edit the <CODE>my.ss</CODE> file.  Refer to the
+<CODE>!</CODE>-denoted descriptions to decide which sounds to change.
+To change a sound, replace the soundfile value with the name of a new
+soundfile of the user's choice.  If changing only a few sounds, delete
+the rest of the file and delete the corresponding sound labels from
+the <CODE>*soundPalette</CODE> list at the top of the file.</P>
+
+<P>Here is an example <CODE>my.ss</CODE> file that modifies just the
+Warning sound, which plays when any new file is created on the desktop
+or in a dirview:</P>
+
+<PRE>
+ *soundPalette: Warning
+
+ *Warning.soundfile: /usr/people/me/sound/jazz_trumpet.aifc
+
+ *Warning.label:     Warning
+</PRE>
+
+<LI>In a Unix shell, kill SoundScheme with the <CODE>killall
+soundscheme</CODE> command.  Restart SoundScheme with the
+<CODE>soundscheme -aux $HOME/sound/my.ss &</CODE> command.  This will
+cause SoundScheme to read the <CODE>defaultScheme.ss</CODE> file then
+load <CODE>my.ss</CODE>.</P>
+</UL>
+
+<P>After the above procedure, the IRIX Interactive Desktop should use
+a combination of system default sounds (for any sounds not defined in
+<CODE>my.ss</CODE>) and the user's new sounds.  If the user's new
+sounds do not play, then the user should inspect <CODE>my.ss</CODE>
+for typos and verify that the new soundfile is in AIFF-C format
+sampled at 44.1kHz.</P>
+
+<P>The new sounds will remain in effect only until the user logs out.
+To keep the sounds across logins, the user needs to create or edit a
+<CODE>$HOME/.xsession</CODE> file as follows:</P>
+
+<UL>
+<LI>Open the <CODE>/var/X11/xdm</CODE> directory and copy the
+<CODE>Xsession.dt</CODE> file to the user's home directory, if one
+does not already exist.  The copy must be renamed to
+<CODE>.xsession</CODE> before proceeding.</P>
+
+<LI>Edit the <CODE>.xsession</CODE> file.  Search for the section
+that's marked "BEGIN SOUNDSCHEME MODIFICATIONS."  Change the line
+<PRE>
+  /usr/sbin/soundscheme >/dev/console 2>&1 &
+</PRE>
+to the following:
+<PRE>
+  /usr/sbin/soundscheme -aux $HOME/sound/my.ss >/dev/console 2>&1 &
+</PRE>
+Save the file, then log out and log back in.
+</UL>
+
+<P>With the <CODE>.xsession</CODE> modifications, the user's custom
+sounds will be restored each time the user logs in.  If the user's new
+sounds do not play, then there may be a typo in the
+<CODE>.xsession</CODE> file that the user should fix.</P>
+
+<P><B>Caution:</B> Changes to the <CODE>.xsession</CODE> file should be made
+with care, as errors can prevent the user from logging in at the
+console.  When the user logs in, <CODE>.xsession</CODE> will run
+instead of the system default <CODE>/var/X11/xdm/Xsession.dt</CODE>
+script.  It's up to users to remember that they have a
+<CODE>.xsession</CODE> file.</P>
+
+<!-- old way, pre-6.5
+<P>The default sound scheme is a plain text file called 
+<CODE>defaultScheme.ss</CODE> that lives in the 
+<CODE>/usr/share/data/sounds/soundscheme/schemes</CODE> directory.
+The sound files referenced in that scheme file are in
+the <CODE>/usr/share/data/sounds/soundscheme/soundfiles</CODE> directory.
+Modifying the settings in the scheme file will change the desktop
+sounds for all users on the machine.</P>
+
+<P>To change a sound in the default scheme you need
+to do the following:
+<UL>
+<LI> Become root, then change your directory
+to <CODE>/usr/share/data/sounds/soundscheme/schemes</CODE>.</P>
+<LI> Copy <CODE>defaultScheme.ss</CODE> to <CODE>defaultScheme.ss.bak</CODE> as a
+backup, in case you want to revert to the original scheme in the
+future.</P>
+<LI> Place your new sound file into the
+aforementioned <CODE>soundfiles</CODE> directory.</P>
+<LI> Edit the <CODE>defaultScheme.ss</CODE> file, and
+change the appropriate <CODE>.soundfile</CODE> name to be the filename
+of your new sound file.</P>
+<LI> Kill and restart SoundScheme with the <CODE>killall soundscheme</CODE>
+and <CODE>soundscheme</CODE> commands, respectively, or by logging
+out and logging back in.
+</UL>
+
+<P>Future IRIX releases may overwrite the scheme
+and sound files in these directories.
+</P>
+-->
+
+<P><B>Tips:</B> To avoid having to wait for sounds to play out when
+you use the desktop, keep your sounds short (a fraction of a second).
+To avoid giving yourself a heart attack when you use the desktop, use
+<CODE>soundeditor</CODE> to adjust the sound levels relative to each
+other so they all seem about the same loudness, and (if needed) fade
+the volume in at the beginning and out at the end of each sound to
+avoid abrupt pops or transitions.
+</P>
+
+<P>If you come up with an exciting new soundscheme, I'd love to hear
+it! Please <A HREF="mailto:rcu@engr.sgi.com?RCU's online sounds
+page">email me</A> if you are willing to share.  I will not use your
+sounds in the IRIX desktop unless you give permission, of course.  If
+it's a really cool scheme that you'd like us to use, the desktop group
+may be able to arrange some kind of compensation.  Thank you for your
+interest!</P>
+
+</BODY>
+</HTML>

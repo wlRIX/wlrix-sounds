@@ -1,0 +1,10 @@
+[Sound Theme]
+Name=wlRIX
+Comment=IRIX Indigo Magic desktop sounds, courtesy the SGI desktop (R.C. Underwood, Roger Powell and Jeff Essex)
+# Anything this theme has no sound for falls back to the stock freedesktop theme, which every
+# distribution ships (sound-theme-freedesktop).
+Inherits=freedesktop
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo
